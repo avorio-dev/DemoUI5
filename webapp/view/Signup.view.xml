@@ -1,0 +1,30 @@
+<mvc:View controllerName="DemoUI5.controller.Signup" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<Page title="{i18n>signUp_pageTitle}" showNavButton="true" navButtonPress=".onNavBack">
+		<Panel headerText="{i18n>signUp_pageTitle}" class="sapUiSmallMarginTopBottom">
+			<content>
+				<Button text="Back" id="backButton" press=".onBackPressed" icon="sap-icon://nav-back"/>
+				<Panel headerText="{i18n>signUp_inputFormTitle}" class="sapUiSmallMarginTop" width="auto">
+					<content>
+						<Input value="{userDataModel>/recipient/username}" placeholder="{i18n>inputUsernamePH}" valueLiveUpdate="true" width="30%"
+							class="sapUiSmallMarginEnd"/>
+						<Input value="{userDataModel>/recipient/email}" placeholder="{i18n>inputEmailPH}" type="Email" valueLiveUpdate="true" width="30%"
+							class="sapUiSmallMarginEnd"/>
+						<Input value="{userDataModel>/recipient/password}" placeholder="{i18n>inputPasswordPH}" type="Password" valueLiveUpdate="true" width="30%"
+							class="sapUiSmallMarginEnd"/>
+					</content>
+				</Panel>
+				<Panel headerText="{i18n>signup_inputRecapTitle}" class="sapUiSmallMarginTop" width="auto">
+					<content>
+						<FormattedText htmlText="{i18n>recap_textUsername}" class="sapThemeHighlight-asColor sapUiSmallMarginTop"/>
+						<FormattedText htmlText="{userDataModel>/recipient/username}"/>
+						<FormattedText htmlText="{i18n>recap_textEmail}" class="sapThemeHighlight-asColor sapUiSmallMarginTop"/>
+						<FormattedText htmlText="{userDataModel>/recipient/email}"/>
+						<Button text="{i18n>signupButton}" press=".onSignUpButton" icon="sap-icon://add-employee" type="Accept"
+							class="sapUiSmallMargin sapUiSmallMarginTop"/>
+					</content>
+				</Panel>
+			</content>
+		</Panel>
+	</Page>
+</mvc:View>

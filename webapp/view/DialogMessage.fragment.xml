@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog id="dialogMessage" title="{i18n>dialogMessageTitle}">
+		<content>
+			<core:Icon alt="sap-icon://lead" src="sap-icon://lead" size="8rem" class="sapUiMediumMargin"/>
+		</content>
+		<Text id="dialogMessageTxt" text="{dialogMessageModel>/text/text}"/>
+		<beginButton>
+			<Button text="{i18n>closeButton}" press=".onCloseDialog" class="sapUiSmallMargin" icon="sap-icon://decline" type="Reject"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

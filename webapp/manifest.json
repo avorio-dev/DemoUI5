@@ -1,0 +1,138 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "DemoUI5",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"invoiceRemote": {
+				"uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://activate",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_belize"]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "DemoUI5.view.Welcome",
+			"type": "XML"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "DemoUI5.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true,
+				"transition": "slide"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "welcome",
+				"target": "welcome"
+			}, {
+				"pattern": "signup",
+				"name": "signup",
+				"target": "signup"
+			}, {
+				"pattern": "invoiceList",
+				"name": "invoiceList",
+				"target": "invoiceList"
+			}, {
+				"pattern": "invoiceDetail/{invoicePath}",
+				"name": "invoiceDetail",
+				"target": "invoiceDetail"
+			}],
+			"targets": {
+				"welcome": {
+					"viewId": "welcome",
+					"viewName": "Welcome",
+					"transition": "flip"
+				},
+				"signup": {
+					"viewId": "signup",
+					"viewName": "Signup"
+				},
+				"invoiceList": {
+					"viewId": "invoiceList",
+					"viewName": "InvoiceList"
+				},
+				"invoiceDetail": {
+					"viewId": "invoiceDetail",
+					"viewName": "InvoiceDetail"
+				}
+			}
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "DemoUI5.i18n.i18n"
+				}
+			},
+			"invoice": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "dummyData/Invoices.json"
+			},
+			"invoiceOdata": {
+				"dataSource": "invoiceRemote"
+			},
+			"invoiceExtended": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "dummyData/InvoicesExtended.json"
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		}
+	}
+}

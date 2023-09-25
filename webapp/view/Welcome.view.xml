@@ -1,0 +1,39 @@
+<mvc:View controllerName="DemoUI5.controller.Welcome" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+	<App id="app">
+		<Panel 
+			headerText="{i18n>welcomeTitle}"
+			class="sapUiResponsiveMargin"
+			width="auto"
+			expandable="{device>/system/phone}"
+			expanded="{= !${device>/system/phone}}">
+			<content>
+				<core:Icon src="sap-icon://sap-ui5" size="20rem" class="sapUiMediumMarginBottom" width="100%" tooltip="{i18n>appTitle}"/>
+				<ProgressIndicator id="progInd" class="sapUiSmallMarginBottom" displayValue="0%" state="Success" displayOnly="true" displayAnimation="false"/>
+				<Button 
+					id="signupBtn" 
+					text="{i18n>signUp}" 
+					press=".onGoToSignup" 
+					icon="sap-icon://add-employee" 
+					type="Emphasized"
+					class="sapUiSmallMargin sapUiSmallMarginTop"/>
+				
+				<Button 
+					id="viewInvoiceBtn" 
+					text ="{i18n>viewInvoices}" 
+					press=".onShowInvoices" 
+					icon ="sap-icon://monitor-payments" 
+					type="Reject"
+					class="sapUiSmallMargin sapUiSmallMarginTop"/>
+				
+				<Button 
+					id="showImgBtn" 
+					text="Guarda un'immagine'" 
+					press=".onDummy" 
+					icon ="sap-icon://biometric-face" 
+					type="Accept"
+					class="sapUiSmallMargin sapUiSmallMarginTop sapUiVisibleOnlyOnDesktop"/>
+			</content>
+		</Panel>
+	</App>
+</mvc:View>
